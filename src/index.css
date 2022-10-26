@@ -46,9 +46,9 @@ code {
 .Header {
   display: flex;
   justify-content: center;
-  font-weight: 600;
-  font-size: 20px;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  margin-top: 20px;
+  font-size: 25px;
 }
 
 .Employee-cont2 {
@@ -74,7 +74,7 @@ code {
 .Last_name,
 .Email,
 .Actions {
-  color: red;
+  color: rgba(0, 0, 0, 0.535);
   display: flex;
   flex: 1 0 20%;
   padding: 10px;

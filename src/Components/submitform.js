@@ -6,6 +6,8 @@ const Submitform = ({
   setformmodal,
   employee,
   getEmployees,
+  isView,
+  setIsView,
 }) => {
   const [error, setError] = useState(null);
   const [user, setUser] = useState({
@@ -16,7 +18,7 @@ const Submitform = ({
   });
 
   useEffect(() => {
-    if (isUpdate) {
+    if (isUpdate || isView) {
       setUser(employee);
     }
   }, []);
@@ -88,19 +90,26 @@ const Submitform = ({
           onClick={() => {
             setIsUpdate(null);
             setformmodal(false);
+            setIsView(null);
           }}
         >
           <i className="fa fa-remove"></i>
         </div>
 
         <div className="authscreen-info">
-          {isUpdate ? "Update" : "Add employee"}
+          {isUpdate || isView
+            ? isUpdate
+              ? "Update"
+              : isView && "Employee info"
+            : "Add employee"}
         </div>
         <div
           className="authscreen-form"
           style={error ? { marginBottom: 0 } : { marginBottom: 20 }}
         >
           <input
+            disabled={isView ? true : false}
+            style={isView && { border: "none" }}
             type="text"
             placeholder="First name"
             name="first_name"
@@ -108,6 +117,8 @@ const Submitform = ({
             onChange={(e) => handleChange(e)}
           />
           <input
+            disabled={isView ? true : false}
+            style={isView && { border: "none" }}
             type="text"
             placeholder="Email"
             name="email"
@@ -115,6 +126,8 @@ const Submitform = ({
             onChange={(e) => handleChange(e)}
           />
           <input
+            disabled={isView ? true : false}
+            style={isView && { border: "none" }}
             type="text"
             placeholder="Last name"
             name="last_name"
@@ -123,6 +136,8 @@ const Submitform = ({
           />
 
           <input
+            disabled={isView ? true : false}
+            style={isView && { border: "none" }}
             type="text"
             placeholder="Phone no"
             name="contact"
@@ -131,13 +146,15 @@ const Submitform = ({
           />
         </div>
         {error && <p className="error-show">{error}</p>}
-        <button
-          onClick={() => {
-            handleSubmit();
-          }}
-        >
-          {isUpdate ? "Update" : "Add"}
-        </button>
+        {!isView && (
+          <button
+            onClick={() => {
+              handleSubmit();
+            }}
+          >
+            {isUpdate ? "Update" : "Add"}
+          </button>
+        )}
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ const Employees = () => {
   const [formmodal, setformmodal] = useState(false);
   const [employee, setemployee] = useState(false);
   const [employees, setEmployees] = useState(null);
+  const [isView,setIsView]=useState(null);
   const getEmployees = () => {
     console.log("here")
     fetch("http://localhost:9000/getemployees").then((res) => {
@@ -51,6 +52,8 @@ const Employees = () => {
                   setIsUpdate={setIsUpdate}
                   setformmodal={setformmodal}
                   setemployee={setemployee}
+                  setIsView={setIsView}
+                  getEmployees={getEmployees}
                 />
               );
             })}
@@ -64,6 +67,8 @@ const Employees = () => {
           setformmodal={setformmodal}
           employee={employee}
           getEmployees={getEmployees}
+          setIsView={setIsView}
+          isView={isView}
         />
       )}
     </>

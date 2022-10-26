@@ -51,7 +51,7 @@ app.put("/update", async (req, res) => {
   const user = req.body;
   console.log(user);
   const collection = database.collection("employees");
-  const yu = await collection.updateOne(
+  const response = await collection.updateOne(
     { id: user.id },
     {
       $set: {
@@ -62,5 +62,13 @@ app.put("/update", async (req, res) => {
       },
     }
   );
+  res.json({ res: "done" });
+});
+app.delete("/delete", async (req, res) => {
+  console.log("delete");
+  const user = req.body;
+  console.log(user);
+  const collection = database.collection("employees");
+  const response = await collection.remove({ id: user.id });
   res.json({ res: "done" });
 });
