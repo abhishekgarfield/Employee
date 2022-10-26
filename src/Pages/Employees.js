@@ -10,7 +10,6 @@ const Employees = () => {
   const [employees, setEmployees] = useState(null);
   const [isView,setIsView]=useState(null);
   const getEmployees = () => {
-    console.log("here")
     fetch("https://employeesgarfield.herokuapp.com/getemployees").then((res) => {
         return res.json();
       })

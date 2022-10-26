@@ -47,7 +47,7 @@ const Submitform = ({
       } else {
         setError(null);
         if (!isUpdate) {
-          const url = `http://localhost:9000/adduser`;
+          const url = `https://employeesgarfield.herokuapp.com/adduser`;
           fetch(url, {
             method: "Post",
             headers: { "Content-type": "application/json" },
@@ -59,13 +59,12 @@ const Submitform = ({
             }
             if (res.status == 403) {
               res.json().then((data) => {
-                console.log(data.error);
                 setError(data.error);
               });
             }
           });
         } else {
-          fetch("http://localhost:9000/update", {
+          fetch("https://employeesgarfield.herokuapp.com/update", {
             method: "Put",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify(user),
@@ -74,7 +73,6 @@ const Submitform = ({
               return res.json();
             })
             .then((data) => {
-              console.log(data);
               getEmployees();
               setformmodal(false);
             });
