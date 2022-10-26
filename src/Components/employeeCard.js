@@ -34,7 +34,7 @@ const Card = ({
         </button>
         <button
           onClick={() => {
-            fetch("http://localhost:9000/delete", {
+            fetch("https://employeesgarfield.herokuapp.com/delete", {
               method: "delete",
               headers: { "Content-type": "application/json" },
               body: JSON.stringify(employee),

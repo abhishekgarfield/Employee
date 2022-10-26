@@ -11,7 +11,7 @@ const Employees = () => {
   const [isView,setIsView]=useState(null);
   const getEmployees = () => {
     console.log("here")
-    fetch("http://localhost:9000/getemployees").then((res) => {
+    fetch("https://employeesgarfield.herokuapp.com/getemployees").then((res) => {
         return res.json();
       })
       .then((data) => {

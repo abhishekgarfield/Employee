@@ -29,7 +29,11 @@ code {
   margin: 10px;
   border-radius: 10px;
   background-color: white;
-  overflow: hidden;
+  overflow: scroll;
+}
+.close:hover{
+  color: black;
+  cursor: pointer;
 }
 
 .Add-employee-button button {
@@ -41,6 +45,11 @@ code {
   font-size: 15px;
   border-radius: 5px;
   margin: 10px 0px 0px 10px;
+  transition: 0.2s all;
+}
+.Add-employee-button button:hover{
+box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.321);
+cursor: pointer;
 }
 
 .Header {
@@ -64,10 +73,15 @@ code {
 .card-cont1 {
   display: flex;
   flex-direction: row;
+  transition: 0.3s all;
 }
 
 .card-cont1:nth-child(2) {
   margin-top: 10px;
+}
+.card-cont1:hover{
+ cursor: pointer;
+  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.225);
 }
 
 .First_name,
@@ -89,11 +103,17 @@ code {
   font-weight: 600;
   font-size: 10px;
   margin: 0px 2px;
+  transition: 0.3s all;
   border-radius: 5px;
+}
+.Actions button:hover{
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.321);
+  cursor: pointer;
 }
 
 .Actions button:nth-child(3) {
   background-color: red;
+  
 }
 
 .card-headers {
@@ -196,52 +216,8 @@ code {
   background-color: red;
   color: white;
   padding: 10px 14px;
+  transition: 0.2s all;
 }
-
-.authscreen-footer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin: 2rem 0rem 2rem 0rem;
-}
-
-.authscreen-footer .qurstion-button {
-  color: #1a73e8;
-  font-weight: 500;
-  font-size: 15pxpx;
-}
-
-.authscreen-footer .qurstion-button:hover {
-  cursor: pointer;
-}
-
-.authscreen-question {
-  display: flex;
-  flex-direction: column;
-}
-
-.submit-container {
-  background-color: #1a73e8;
-  padding: 10px 20px;
-  color: white;
-  font-weight: 600;
-  font-size: 15px;
-  border: none;
-  border-radius: 5px;
-}
-
-.submit-container:hover {
-  cursor: pointer;
-}
-
-.question-login {
-  display: flex;
-  align-items: center;
-  color: rgba(0, 0, 0, 0.347);
-  font-size: 10px;
-}
-
 .error-show {
   display: flex;
   align-items: center;
