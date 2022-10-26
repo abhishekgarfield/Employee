@@ -1,27 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../Components/employeeCard";
 import Submitform from "../Components/submitform";
 
 const Employees = () => {
+  
   const [isUpdate, setIsUpdate] = useState(null);
   const [formmodal, setformmodal] = useState(false);
   const [employee, setemployee] = useState(false);
-  const employees = [
-    {
-      first_name: "abhishek",
-      last_name: "sharma",
-      email: "abhishek2759@gmail.com",
-      id: 12345,
-      contact: 9418295223,
-    },
-    {
-      first_name: "abhishek",
-      last_name: "sharma",
-      email: "abhishek2759@gmail.com",
-      id: 12345,
-      contact: 9418295223,
-    },
-  ];
+  const [employees, setEmployees] = useState(null);
+  const getEmployees = () => {
+    console.log("here")
+    fetch("http://localhost:9000/getemployees").then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setEmployees(data);
+      });
+  };
+  useEffect(() => {
+    getEmployees();
+  },[]);
   return (
     <>
       <div className="Employee-cont1">
@@ -45,7 +43,7 @@ const Employees = () => {
               <div className="Email">Email</div>
               <div className="Actions">Actions</div>
             </div>
-            {employees?.map((data, index) => {
+            {employees && employees.length>0 && employees?.map((data, index) => {
               return (
                 <Card
                   employee={data}
@@ -65,6 +63,7 @@ const Employees = () => {
           setIsUpdate={setIsUpdate}
           setformmodal={setformmodal}
           employee={employee}
+          getEmployees={getEmployees}
         />
       )}
     </>

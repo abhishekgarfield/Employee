@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 
-const Submitform = ({ isUpdate, setIsUpdate, setformmodal, employee }) => {
+const Submitform = ({
+  isUpdate,
+  setIsUpdate,
+  setformmodal,
+  employee,
+  getEmployees,
+}) => {
   const [error, setError] = useState(null);
   const [user, setUser] = useState({
     first_name: "",
@@ -14,9 +20,65 @@ const Submitform = ({ isUpdate, setIsUpdate, setformmodal, employee }) => {
       setUser(employee);
     }
   }, []);
-  console.log(employee);
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = () => {
+    if (
+      user?.email?.length < 1 ||
+      user?.last_name?.length < 1 ||
+      user?.first_name?.length < 1 ||
+      user?.contact?.length < 1 ||
+      !user
+    ) {
+      return setError(`Fields should not be empty`);
+    } else {
+      if (
+        user.email.match(
+          "(^([a-z-A-Z0-9]+)([@]{1})([A-Za-z]*)([.]{1})([a-zA-Z]{2,4}))"
+        ) == null
+      ) {
+        setError("Email should be of type abhishek@gmail.com");
+      } else if (user.contact.length != 10) {
+        setError("Phon number must be 10 digits");
+      } else {
+        setError(null);
+        if (!isUpdate) {
+          const url = `http://localhost:9000/adduser`;
+          fetch(url, {
+            method: "Post",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify(user),
+          }).then((res) => {
+            if (res.status == 200) {
+              getEmployees();
+              setformmodal(false);
+            }
+            if (res.status == 403) {
+              res.json().then((data) => {
+                console.log(data.error);
+                setError(data.error);
+              });
+            }
+          });
+        } else {
+          fetch("http://localhost:9000/update", {
+            method: "Put",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify(user),
+          })
+            .then((res) => {
+              return res.json();
+            })
+            .then((data) => {
+              console.log(data);
+              getEmployees();
+              setformmodal(false);
+            });
+        }
+      }
+    }
   };
   return (
     <div className="Submitform-cont">
@@ -41,8 +103,8 @@ const Submitform = ({ isUpdate, setIsUpdate, setformmodal, employee }) => {
           <input
             type="text"
             placeholder="First name"
-            name="name"
-            value={user ? user.first_name : ""}
+            name="first_name"
+            value={user.first_name}
             onChange={(e) => handleChange(e)}
           />
           <input
@@ -69,7 +131,13 @@ const Submitform = ({ isUpdate, setIsUpdate, setformmodal, employee }) => {
           />
         </div>
         {error && <p className="error-show">{error}</p>}
-        <button>{isUpdate ? "Update" : "Add"}</button>
+        <button
+          onClick={() => {
+            handleSubmit();
+          }}
+        >
+          {isUpdate ? "Update" : "Add"}
+        </button>
       </div>
     </div>
   );
