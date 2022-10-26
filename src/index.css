@@ -11,3 +11,252 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*--------------- Employee-cont1 --------------- */
+
+.Employee-cont1 {
+  display: flex;
+  background-color: rgb(237, 237, 237);
+  justify-content: center;
+
+}
+
+.Employee-list {
+  display: flex;
+  flex: 1 0 50%;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: white;
+  overflow: hidden;
+}
+
+.Add-employee-button button {
+  background-color: rgb(29, 101, 165);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 5px;
+  margin: 10px 0px 0px 10px;
+}
+
+.Header {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+.Employee-cont2 {
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px;
+  width: 100%;
+  height: 100vh;
+}
+
+/* ------------------- Empoyee-card ----------------- */
+
+.card-cont1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-cont1:nth-child(2) {
+  margin-top: 10px;
+}
+
+.First_name,
+.Last_name,
+.Email,
+.Actions {
+  color: red;
+  display: flex;
+  flex: 1 0 20%;
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.116);
+}
+
+.Actions button {
+  background-color: rgb(53, 192, 187);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-weight: 600;
+  font-size: 10px;
+  margin: 0px 2px;
+  border-radius: 5px;
+}
+
+.Actions button:nth-child(3) {
+  background-color: red;
+}
+
+.card-headers {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+}
+
+.card-headers .First_name,
+.card-headers .Last_name,
+.card-headers .Email,
+.card-headers .Actions {
+  color: black;
+  border: none;
+  border-bottom: 3px solid blue;
+  border-radius: 50px;
+}
+
+/* ------------------ Authscreen ------------------ */
+.Submitform-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: fixed;
+  z-index: 3;
+  height: 100vh;
+  top: 0;
+  width: 100vw;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.349)
+}
+
+.Submitform-cont1 {
+  display: flex;
+  flex: 0 0 25%;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.201);
+  padding: 45px 40px;
+  justify-content: center;
+  border-radius: 7px;
+  flex-direction: column;
+  background-color: white;
+
+}
+
+.google-logo {
+  display: flex;
+  justify-content: center;
+
+}
+
+.google-logo img {
+  height: 38px;
+  width: 100px;
+}
+
+.authscreen-title {
+  display: flex;
+  justify-content: center;
+  margin: 0.8rem 0rem 0rem 0rem;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.authscreen-info {
+  display: flex;
+  margin: 0.6rem 0rem 0rem 0rem;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.authscreen-form {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0rem 4rem 0rem;
+}
+
+.authscreen-form input {
+  display: flex;
+  font-size: 15px;
+  margin: 0.5rem 0rem 0rem 0rem;
+  padding: 17px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.201);
+  border-radius: 5px;
+}
+
+.authscreen-form input:focus {
+  border: 1px solid #1a73e8;
+}
+
+.close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  padding: 10px 14px;
+}
+
+.authscreen-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0rem 2rem 0rem;
+}
+
+.authscreen-footer .qurstion-button {
+  color: #1a73e8;
+  font-weight: 500;
+  font-size: 15pxpx;
+}
+
+.authscreen-footer .qurstion-button:hover {
+  cursor: pointer;
+}
+
+.authscreen-question {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-container {
+  background-color: #1a73e8;
+  padding: 10px 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+.submit-container:hover {
+  cursor: pointer;
+}
+
+.question-login {
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.347);
+  font-size: 10px;
+}
+
+.error-show {
+  display: flex;
+  align-items: center;
+  color: red;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.Submitform-cont1 button {
+  background-color: rgb(29, 101, 165);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 5px;
+  margin: 10px 0px 0px 10px;
+}
